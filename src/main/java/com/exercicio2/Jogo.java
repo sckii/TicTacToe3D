@@ -24,17 +24,30 @@ public class Jogo {
         }
     }
 
+    public void adicionarJogada(int i, int j, int k, Jogador p) {
+        tabuleiro[i][j + (k * 3)] = p.simbolo;
+    }
+    
     public void setJogadores(Jogador p1, Jogador p2) {
         this.p1 = p1;
         this.p2 = p2;
     }
 
-    public boolean vitoria() {
+    private boolean porCamada() {
+  
         for (int i = 0; i < 3; i++) {
-            for (int j = 1; j <= 9; j++) {
-                
+            for (int j = 0; j < 3; j++) {
+                for (int k = 0; k < 3; k++) {
+                    char simbol = tabuleiro[i][j];
+                    boolean linha = tabuleiro[i][j] == simbol && tabuleiro[i][j + 1] == simbol && tabuleiro[i][j + 1] == simbol;
+            
+                }
             }
         }
+    }
+
+    public boolean vitoria() {
+        
         return false;
     }
 

@@ -73,14 +73,22 @@ public class App
     public static void main( String[] args )
     {
         Jogo game = new Jogo();
+        ArrayList<Jogador> jogadores = new ArrayList<>();
         int escolha = userInterface();
         game.start();
 
-        if (escolha == 1)
-            game.setJogadores(pvp().get(0), pvp().get(1));
-        else if (escolha == 2)
-            game.setJogadores(pve().get(0), pve().get(1));
+        if (escolha == 1) {
+            jogadores = pvp();
+            game.setJogadores(jogadores.get(0), jogadores.get(1));
+        }
+        else if (escolha == 2) {
+            jogadores = pve();
+            game.setJogadores(jogadores.get(0), jogadores.get(1));
+        }
 
-        
+        game.adicionarJogada(0, 2, 0, jogadores.get(1));
+        game.adicionarJogada(1, 1, 0, jogadores.get(1));
+        game.adicionarJogada(2, 0, 0, jogadores.get(1));
+        game.imprimeTabuleiro();
     }
 }
